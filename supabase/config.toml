@@ -1,0 +1,4 @@
+project_id = "cdykajiibyhwxcehlrym"
+
+[functions.generate-vocabulary-image]
+verify_jwt = false
