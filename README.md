@@ -1,4 +1,8 @@
-This is project website using for Chinese people to learn Vietnamese.
+# # Welcome to my Vietnamese Learning Project using low-code and B-a-a-S
+
+## Project info
+
+**Use your preferred IDE**
 
 Follow these steps:
 
@@ -10,7 +14,7 @@ git clone <YOUR_GIT_URL>
 cd <YOUR_PROJECT_NAME>
 
 # Step 3: Install the necessary dependencies.
-npm i
+npm install
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
@@ -39,5 +43,4 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
-- Supabase (backend-as-a-service)
-
+- Supabase

@@ -1,18 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import logoImg from '@/assets/logo-footer.png';
-
 export default function Footer() {
-  const { t } = useLanguage();
-
-  return (
-    <footer className="border-t border-border bg-secondary/30">
+  const {
+    t
+  } = useLanguage();
+  return <footer className="border-t border-border bg-secondary/30">
       <div className="container mx-auto px-4 py-8">
         <div className="grid gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <img src={logoImg} alt="XinChao Vietnamese" className="h-10 w-auto" />
+              <img alt="XinChao Vietnamese" className="h-10 w-auto" src="/lovable-uploads/5a47aab5-7f48-48df-a0cc-311a7364416b.png" />
               <span className="font-bold text-lg text-primary">XinChao Vietnamese</span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-md">
@@ -81,6 +80,5 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }

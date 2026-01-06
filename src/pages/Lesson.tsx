@@ -17,10 +17,15 @@ interface VocabItem {
   pinyin: string;
 }
 
+interface QuizOption {
+  vi: string;
+  zh: string;
+}
+
 interface QuizQuestion {
   question_vi: string;
   question_zh: string;
-  options: string[];
+  options: QuizOption[] | string[];
   correct: number;
 }
 
@@ -306,28 +311,33 @@ export default function Lesson() {
                         {t('quiz.question')} {qIdx + 1}: {language === 'vi' ? q.question_vi : q.question_zh}
                       </p>
                       <div className="grid grid-cols-2 gap-2">
-                        {q.options.map((opt, oIdx) => (
-                          <Button
-                            key={oIdx}
-                            variant={quizAnswers[qIdx] === oIdx ? 'default' : 'outline'}
-                            className={showResults 
-                              ? (oIdx === q.correct 
-                                ? 'bg-success hover:bg-success' 
-                                : quizAnswers[qIdx] === oIdx 
-                                  ? 'bg-destructive hover:bg-destructive' 
-                                  : '') 
-                              : ''}
-                            onClick={() => {
-                              if (!showResults) {
-                                const newAnswers = [...quizAnswers];
-                                newAnswers[qIdx] = oIdx;
-                                setQuizAnswers(newAnswers);
-                              }
-                            }}
-                          >
-                            {opt}
-                          </Button>
-                        ))}
+                        {q.options.map((opt, oIdx) => {
+                          const optionText = typeof opt === 'string' 
+                            ? opt 
+                            : (language === 'vi' ? opt.vi : opt.zh);
+                          return (
+                            <Button
+                              key={oIdx}
+                              variant={quizAnswers[qIdx] === oIdx ? 'default' : 'outline'}
+                              className={showResults 
+                                ? (oIdx === q.correct 
+                                  ? 'bg-success hover:bg-success' 
+                                  : quizAnswers[qIdx] === oIdx 
+                                    ? 'bg-destructive hover:bg-destructive' 
+                                    : '') 
+                                : ''}
+                              onClick={() => {
+                                if (!showResults) {
+                                  const newAnswers = [...quizAnswers];
+                                  newAnswers[qIdx] = oIdx;
+                                  setQuizAnswers(newAnswers);
+                                }
+                              }}
+                            >
+                              {optionText}
+                            </Button>
+                          );
+                        })}
                       </div>
                     </div>
                   ))}

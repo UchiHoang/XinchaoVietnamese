@@ -10,7 +10,18 @@ import { Badge } from '@/components/ui/badge';
 import Layout from '@/components/layout/Layout';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
-import pandaMascot from '@/assets/panda-vietnamese.png';
+import pandaMascot from '@/assets/panda-hero-bg.png';
+import avatarKhanh from '@/assets/team/avatar-khanh.png';
+import avatarMy from '@/assets/team/avatar-my.png';
+import avatarAnh from '@/assets/team/avatar-anh.png';
+import avatarChau from '@/assets/team/avatar-chau.png';
+import avatarQuynh from '@/assets/team/avatar-quynh.png';
+import avatarLam from '@/assets/team/avatar-lam.png';
+import avatarNgan from '@/assets/team/avatar-ngan.png';
+import avatarLanAnh from '@/assets/team/avatar-lananh.png';
+import avatarHung from '@/assets/team/avatar-hung.png';
+import avatarHan from '@/assets/team/avatar-han.png';
+import teamPandaBanner from '@/assets/team/team-background.png';
 
 // Mock tutor schedule data
 const mockTutorSchedule = [
@@ -90,6 +101,59 @@ export default function Index() {
     },
   ];
 
+  const teamMembers: { name: string; role: string; avatar?: string }[] = [
+    { 
+      name: "Hoàng Quốc Khánh", 
+      role: language === 'vi' ? "CEO, Leader, Lập trình viên" : "CEO、团队负责人、开发工程师",
+      avatar: avatarLam
+    },
+    { 
+      name: "Lê Thiện Mỹ", 
+      role: language === 'vi' ? "Marketing, Thiết kế" : "市场营销、设计",
+      avatar: avatarMy
+    },
+    { 
+      name: "Vũ Phúc Minh Ánh", 
+      role: language === 'vi' ? "Marketing, Nội dung" : "市场营销、内容",
+      avatar: avatarChau
+    },
+    { 
+      name: "Huỳnh Bửu Châu", 
+      role: language === 'vi' ? "Marketing, Truyền thông" : "市场营销、传媒",
+      avatar: avatarAnh
+    },
+    { 
+      name: "Bùi Vũ Như Quỳnh", 
+      role: language === 'vi' ? "Marketing, Chăm sóc khách hàng" : "市场营销、客户服务",
+      avatar: avatarQuynh
+    },
+    { 
+      name: "Trương Nguyễn Hoàng Lâm", 
+      role: language === 'vi' ? "Lập trình viên" : "开发工程师",
+      avatar: avatarKhanh
+    },
+    { 
+      name: "Nguyễn Trương Thu Ngân", 
+      role: language === 'vi' ? "Thiết kế, Nội dung" : "设计、内容",
+      avatar: avatarNgan
+    },
+    { 
+      name: "Nguyễn Thị Lan Anh", 
+      role: language === 'vi' ? "Marketing, Sự kiện" : "市场营销、活动策划",
+      avatar: avatarLanAnh
+    },
+    { 
+      name: "Trần Quốc Hùng", 
+      role: language === 'vi' ? "Lập trình viên" : "开发工程师",
+      avatar: avatarHung
+    },
+    { 
+      name: "Kiều Thị Ngọc Hân", 
+      role: language === 'vi' ? "Marketing, Nội dung sáng tạo" : "市场营销、创意内容",
+      avatar: avatarHan
+    },
+  ];
+
   return (
     <Layout showMascot>
       {/* Hero Section */}
@@ -128,8 +192,12 @@ export default function Index() {
             </div>
             <div className="flex justify-center animate-slide-in-right">
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-2xl animate-pulse-glow" />
-                <img src={pandaMascot} alt="XinChao Panda" className="w-64 md:w-80 relative animate-float drop-shadow-xl" />
+                <div className="absolute -inset-6 bg-gradient-to-r from-primary/30 to-accent/30 rounded-3xl blur-2xl animate-pulse-glow" />
+                <img 
+                  src={pandaMascot} 
+                  alt="XinChao Panda" 
+                  className="w-80 md:w-[420px] lg:w-[500px] relative animate-float drop-shadow-2xl rounded-3xl shadow-elevated" 
+                />
               </div>
             </div>
           </div>
@@ -255,6 +323,124 @@ export default function Index() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Us - Team Section */}
+      <section className="py-16 bg-gradient-to-br from-primary/5 via-background to-accent/5 relative overflow-hidden">
+        {/* Animated background decorations */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/4 w-20 h-20 bg-warning/5 rounded-full blur-2xl animate-float" style={{ animationDelay: '0.5s' }} />
+        
+        <div className="container mx-auto px-4 relative">
+          <div className="text-center mb-12 animate-fade-in">
+            <Badge className="mb-4 bg-accent/10 text-accent border-accent/30 animate-scale-in">
+              {language === 'vi' ? '👥 Về chúng tôi' : '👥 关于我们'}
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              {language === 'vi' ? 'Đội ngũ phát triển' : '开发团队'}
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              {language === 'vi' 
+                ? 'Chúng tôi là nhóm sinh viên đến từ Trường Đại học Sư phạm TP. Hồ Chí Minh, Việt Nam, với đam mê xây dựng nền tảng học tiếng Việt hiện đại'
+                : '我们是来自越南胡志明市师范大学的学生团队，致力于打造现代化的越南语学习平台'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+            {teamMembers.map((member, idx) => (
+              <Card 
+                key={idx} 
+                className="border-0 shadow-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:rotate-1 group text-center overflow-hidden animate-scale-in bg-card/80 backdrop-blur-sm"
+                style={{ animationDelay: `${idx * 0.1}s` }}
+              >
+                <CardContent className="p-4 md:p-6 relative h-full">
+                  {/* Glow effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-accent/0 group-hover:from-primary/5 group-hover:to-accent/5 transition-all duration-500" />
+                  
+                  {/* Avatar with enhanced animations */}
+                  <div className="relative mx-auto mb-4 w-20 h-20 md:w-24 md:h-24">
+                    <div className="absolute -inset-1 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-glow" />
+                    {member.avatar ? (
+                      <img 
+                        src={member.avatar} 
+                        alt={member.name}
+                        className="w-full h-full rounded-full object-cover border-2 border-background shadow-lg group-hover:scale-110 group-hover:border-primary/50 transition-all duration-500 relative"
+                      />
+                    ) : (
+                      <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 flex items-center justify-center group-hover:scale-110 transition-all duration-500 border-2 border-background shadow-lg relative group-hover:from-primary/30 group-hover:to-accent/30">
+                        <span className="text-2xl md:text-3xl font-bold text-primary group-hover:scale-110 transition-transform duration-300">
+                          {member.name.split(' ').pop()?.charAt(0)}
+                        </span>
+                      </div>
+                    )}
+                    {/* Role indicator dot - Creative icons for each member */}
+                    <div className={`absolute -bottom-1 -right-1 w-5 h-5 rounded-full border-2 border-background flex items-center justify-center animate-bounce-soft ${
+                      idx === 0 ? 'bg-warning' : 
+                      idx === 1 ? 'bg-pink-400' : 
+                      idx === 2 ? 'bg-blue-400' : 
+                      idx === 3 ? 'bg-green-400' : 
+                      idx === 4 ? 'bg-purple-400' : 
+                      idx === 5 ? 'bg-primary' : 
+                      idx === 6 ? 'bg-orange-400' : 
+                      idx === 7 ? 'bg-cyan-400' : 
+                      idx === 8 ? 'bg-primary' : 
+                      'bg-rose-400'
+                    }`}>
+                      <span className="text-[8px]">
+                        {idx === 0 ? '👑' : 
+                         idx === 1 ? '🎨' : 
+                         idx === 2 ? '📚' : 
+                         idx === 3 ? '🎯' : 
+                         idx === 4 ? '✨' : 
+                         idx === 5 ? '💻' : 
+                         idx === 6 ? '🎬' : 
+                         idx === 7 ? '🎵' : 
+                         idx === 8 ? '💻' : 
+                         '💡'}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <h3 className="font-semibold text-foreground text-sm md:text-base mb-1 line-clamp-2 group-hover:text-primary transition-colors duration-300 relative">
+                    {member.name}
+                  </h3>
+                  <p className="text-xs md:text-sm text-muted-foreground line-clamp-2 relative">
+                    {member.role}
+                  </p>
+                  {idx === 0 && (
+                    <Badge className="mt-3 bg-gradient-to-r from-warning/20 to-warning/10 text-warning border-warning/30 text-xs animate-pulse">
+                      {language === 'vi' ? '⭐ Leader' : '⭐ 负责人'}
+                    </Badge>
+                  )}
+                  {(idx === 5 || idx === 8) && (
+                    <Badge className="mt-3 bg-primary/10 text-primary border-primary/30 text-xs">
+                      💻 Dev
+                    </Badge>
+                  )}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center animate-fade-in" style={{ animationDelay: '1s' }}>
+            <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 shadow-card hover:shadow-elevated transition-all duration-300 hover:scale-105 group">
+              <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <GraduationCap className="w-5 h-5 text-primary" />
+              </div>
+              <div className="text-left">
+                <p className="text-xs text-muted-foreground">
+                  {language === 'vi' ? 'Sinh viên' : '学生团队'}
+                </p>
+                <p className="text-sm font-medium text-foreground">
+                  {language === 'vi' 
+                    ? 'Trường Đại học Sư phạm TP. Hồ Chí Minh' 
+                    : '胡志明市师范大学'}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
