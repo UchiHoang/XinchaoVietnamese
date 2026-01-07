@@ -20,6 +20,10 @@ npm install
 npm run dev
 ```
 
+#Account for login with admin for testing
+Account: hoangquockhanh204@gmai.com
+Password: 123456
+
 **Edit a file directly in GitHub**
 
 - Navigate to the desired file(s).
